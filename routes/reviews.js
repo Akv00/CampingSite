@@ -5,7 +5,7 @@ const Review = require("../models/review");
 const Campground = require("../models/campground");
 const catchAsync = require("../utils/catchAsync");
 const ExpressError = require("../utils/ExpressError");
-const {validateReview,isLoggedIn} = require("../middleware.js")
+const {validateReview,isLoggedIn,isReviewAuthor} = require("../middleware.js")
 
 router.post(
   "/",isLoggedIn,validateReview,
@@ -24,7 +24,7 @@ router.post(
 );
 
 router.delete(
-  "/:reviewId",
+  "/:reviewId",isLoggedIn,isReviewAuthor,
   catchAsync(async (req, res) => {
     const { id, reviewId } = req.params;
     await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
