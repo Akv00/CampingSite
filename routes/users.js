@@ -7,7 +7,7 @@ const passport = require("passport");
 const { checkReturnTo } = require("../middleware.js");
 const users = require("../controllers/users");
 router
-  .route("/users")
+  .route("/register")
   .get(users.renderRegister)
   .post(catchAsync(users.register));
 
