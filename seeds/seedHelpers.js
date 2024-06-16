@@ -16,7 +16,8 @@ module.exports.descriptors = [
     'Sea',
     'Sky',
     'Dusty',
-    'Diamond'
+    'Diamond',
+    'hiyi'
 ]
 
 module.exports.places = [
